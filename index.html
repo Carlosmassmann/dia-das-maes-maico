@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mai.CO Health & Spa — Presente especial para o Dia das Mães. Experiências únicas de bem-estar, massagem e spa em Santa Cruz do Sul, RS. Vagas limitadas.">
+  <meta name="description" content="Mai.CO Health & Spa — Presente especial para o Dia das Mães. Experiências únicas de bem-estar, massagem e spa em Santa Cruz do Sul, RS.">
   <meta name="theme-color" content="#1d2219">
   <title>Mai.CO Health & Spa — Presente para o Dia das Mães</title>
 
@@ -812,6 +812,18 @@
       pointer-events: none;
     }
 
+    .experience__photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.75s ease;
+    }
+
+    .experience__image-wrap:hover .experience__photo {
+      transform: scale(1.05);
+    }
+
     .experience__badge {
       position: absolute;
       bottom: 20px;
@@ -1183,7 +1195,7 @@
     </div>
 
     <div class="container hero__content">
-      <span class="tag tag--dark hero__tag">Dia das Mães 2025</span>
+      <span class="tag tag--dark hero__tag">Dia das Mães 2026</span>
 
       <h1 class="hero__title">
         Para ela,<br><em>pelo menos<br>uma vez.</em>
@@ -1212,21 +1224,9 @@
           <span class="hero__pill-dot" aria-hidden="true"></span>
           Santa Cruz do Sul – RS
         </div>
-        <div class="hero__pill">
-          <span class="hero__pill-dot" aria-hidden="true"></span>
-          Vagas limitadas
-        </div>
-        <div class="hero__pill">
-          <span class="hero__pill-dot" aria-hidden="true"></span>
-          5 experiências exclusivas
-        </div>
       </div>
     </div>
 
-    <div class="hero__scroll" aria-hidden="true">
-      <div class="hero__scroll-line"></div>
-      <span class="hero__scroll-label">scroll</span>
-    </div>
 
   </section>
 
@@ -1273,7 +1273,7 @@
       </svg>
     </div>
     <div class="intro__inner">
-      <span class="tag tag--light reveal">Dia das Mães 2025</span>
+      <span class="tag tag--light reveal">Dia das Mães 2026</span>
       <h2 id="intro-title" class="section-title section-title--light reveal reveal-delay-1">
         Muito além da massagem.<br><em>É cuidado de verdade.</em>
       </h2>
@@ -1458,9 +1458,12 @@
         </div>
 
         <div class="experience__image-wrap reveal reveal-delay-2">
-          <div class="experience__image" role="img" aria-label="Ambiente relaxante e acolhedor do Mai.CO Health & Spa">
-            <span class="experience__image-placeholder" aria-hidden="true">🌿</span>
-          </div>
+          <img
+            src="spa.jpg"
+            alt="Sala de spa da Mai.CO Health & Spa — banheira de imersão, maca de massagem com pétalas de rosa e iluminação aconchegante"
+            class="experience__photo"
+            fetchpriority="high"
+          >
           <div class="experience__badge">
             <span class="experience__badge-label">Localização</span>
             <span class="experience__badge-value">Santa Cruz do Sul, RS</span>
@@ -1483,13 +1486,13 @@
       </svg>
     </div>
     <div class="container">
-      <span class="tag tag--dark reveal">Vagas limitadas</span>
+      <span class="tag tag--dark reveal">Reserve agora</span>
       <h2 id="cta-title" class="cta-final__title reveal reveal-delay-1">
         Garanta agora.<br>
         <em>O Dia das Mães não espera.</em>
       </h2>
       <p class="cta-final__body reveal reveal-delay-2">
-        As vagas são limitadas. Presenteie ela com algo que realmente simbolize o que a palavra Mãe representa: tempo, cuidado, carinho, amor e atenção.
+        Presenteie ela com algo que realmente simbolize o que a palavra Mãe representa: tempo, cuidado, carinho, amor e atenção.
       </p>
       <a href="https://wa.me/5551990106281?text=Olá!%20Quero%20presentear%20minha%20mãe%20no%20Dia%20das%20Mães%20com%20uma%20experiência%20especial%20na%20Mai.CO.%20Quais%20são%20as%20vagas%20disponíveis%3F"
          class="btn btn--wpp reveal reveal-delay-3"
