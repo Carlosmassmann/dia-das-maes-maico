@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mai.CO Health & Spa — Presente especial para o Dia das Mães. Experiências únicas de bem-estar, massagem e spa em Santa Cruz do Sul, RS. Vagas limitadas.">
+  <meta name="theme-color" content="#1d2219">
+  <title>Mai.CO Health & Spa — Presente para o Dia das Mães</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/laca" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════════ */
+    :root {
+      /* Primary — Verde Oliva/Floresta */
+      --primary-50:  244 246 241;
+      --primary-100: 227 233 221;
+      --primary-200: 198 212 186;
+      --primary-300: 159 181 141;
+      --primary-400: 123 148 102;
+      --primary-500: 112 123 93;
+      --primary-600: 87 97 72;
+      --primary-700: 70 78 58;
+      --primary-800: 58 64 49;
+      --primary-900: 49 54 43;
+      --primary-950: 29 34 25;
+
+      /* Secondary — Dourado/Âmbar */
+      --secondary-300: 232 202 144;
+      --secondary-400: 223 178 94;
+      --secondary-500: 194 144 35;
+
+      /* Neutros */
+      --neutral-50:  241 241 241;
+      --neutral-100: 228 228 228;
+      --neutral-200: 207 207 207;
+      --neutral-400: 155 155 155;
+      --neutral-700: 79 79 79;
+      --neutral-800: 54 54 54;
+      --neutral-900: 37 38 39;
+
+      /* Fontes */
+      --font-body:  Laca, Lato, sans-serif;
+      --font-serif: 'Playfair Display', serif;
+    }
+
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgb(var(--neutral-800));
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ═══════════════════════════════════════════
+       LAYOUT
+    ═══════════════════════════════════════════ */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container--wide {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ═══════════════════════════════════════════
+       TIPOGRAFIA
+    ═══════════════════════════════════════════ */
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title--light { color: rgb(var(--primary-950)); }
+    .section-title--dark  { color: #fff; }
+
+    .section-title em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* ═══════════════════════════════════════════
+       EYEBROW TAG
+    ═══════════════════════════════════════════ */
+    .tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .tag--light { color: rgb(var(--primary-600)); }
+    .tag--dark  { color: rgb(var(--secondary-400)); }
+
+    .tag::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    .tag--light::before { background: rgb(var(--primary-400)); }
+    .tag--dark::before  { background: rgb(var(--secondary-400)); }
+
+    /* ═══════════════════════════════════════════
+       BOTÕES
+    ═══════════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 9999px;
+      padding: 16px 36px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-family: var(--font-body);
+      border: none;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(.22,.68,0,1.2);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0) 70%);
+      transform: translateX(-120%) rotate(30deg);
+      transition: transform 0.65s ease;
+    }
+
+    .btn:hover::after {
+      transform: translateX(120%) rotate(30deg);
+    }
+
+    /* Primary */
+    .btn--primary {
+      background: rgb(var(--primary-500));
+      color: rgb(var(--neutral-50));
+      box-shadow: 0 8px 30px rgba(49,54,43,0.35), inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+
+    .btn--primary:hover {
+      background: rgb(var(--primary-600));
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(49,54,43,0.45), inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+
+    /* Ghost (fundos claros) */
+    .btn--ghost {
+      color: rgb(var(--primary-900));
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(49,54,43,0.15);
+    }
+
+    .btn--ghost:hover {
+      background: rgba(255,255,255,0.22);
+      transform: translateY(-2px);
+    }
+
+    /* Ghost light (fundos escuros/foto) */
+    .btn--ghost-light {
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn--ghost-light:hover {
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-2px);
+    }
+
+    /* WhatsApp */
+    .btn--wpp {
+      background: #25d366;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+    }
+
+    .btn--wpp:hover {
+      background: #1db954;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(37,211,102,0.42);
+    }
+
+    .btn--wpp .wpp-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 24px 0;
+      transition: all 0.45s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(29,34,25,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 14px 0;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.25);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav__logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .nav__logo-name {
+      font-family: var(--font-serif);
+      font-size: 1.375rem;
+      letter-spacing: 0.14em;
+      color: #fff;
+      font-weight: 400;
+    }
+
+    .nav__logo-sub {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.5);
+      margin-top: 3px;
+    }
+
+    .nav__cta {
+      padding: 10px 22px;
+      font-size: 0.6875rem;
+      background: rgba(112,123,93,0.88);
+      color: #fff;
+      border-radius: 9999px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-family: var(--font-body);
+      transition: all 0.35s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav__cta:hover {
+      background: rgba(112,123,93,1);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(49,54,43,0.3);
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      /* Rich, layered gradient simulating a lush, dimly lit spa environment */
+      background:
+        linear-gradient(165deg,
+          rgba(29,34,25,0.92) 0%,
+          rgba(49,54,43,0.55) 45%,
+          rgba(70,78,58,0.20) 100%),
+        radial-gradient(ellipse 70% 80% at 75% 40%, rgba(112,123,93,0.22) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 60% at 15% 85%, rgba(29,34,25,0.7) 0%, transparent 60%),
+        linear-gradient(200deg,
+          rgb(29,34,25) 0%,
+          rgb(49,54,43) 40%,
+          rgb(70,78,58) 70%,
+          rgb(87,97,72) 100%);
+    }
+
+    /* Ambient glow — right side warmth */
+    .hero__bg::before {
+      content: '';
+      position: absolute;
+      right: -8%;
+      top: 10%;
+      width: 55%;
+      height: 80%;
+      background: radial-gradient(ellipse at center,
+        rgba(159,181,141,0.12) 0%,
+        rgba(123,148,102,0.06) 40%,
+        transparent 70%);
+    }
+
+    /* Vignette bottom */
+    .hero__bg::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 35%;
+      background: linear-gradient(to top, rgba(29,34,25,0.7), transparent);
+    }
+
+    .hero__decor {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 10;
+      padding-top: 120px;
+      padding-bottom: 80px;
+      width: 100%;
+    }
+
+    .hero__title {
+      font-family: var(--font-serif);
+      font-size: clamp(52px, 10vw, 88px);
+      font-weight: 400;
+      line-height: 1.0;
+      color: #fff;
+      filter: drop-shadow(0 4px 24px rgba(0,0,0,0.4));
+      margin-bottom: 24px;
+      max-width: 820px;
+    }
+
+    .hero__title em {
+      font-style: italic;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: rgba(255,255,255,0.75);
+      max-width: 540px;
+      margin-bottom: 44px;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+
+    .hero__pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .hero__pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      background: rgba(255,255,255,0.09);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 9999px;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    .hero__pill-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgb(var(--secondary-400));
+      flex-shrink: 0;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .hero__scroll-line {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.38);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+      transform-origin: top center;
+    }
+
+    .hero__scroll-label {
+      font-size: 0.5625rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+
+    /* ═══════════════════════════════════════════
+       INFO STRIP
+    ═══════════════════════════════════════════ */
+    .strip {
+      background: rgb(var(--primary-950));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .strip__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .strip__item {
+      padding: 32px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+
+    .strip__item:last-child {
+      border-right: none;
+    }
+
+    .strip__value {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.125rem);
+      color: rgb(var(--secondary-400));
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .strip__label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.45);
+      font-weight: 400;
+    }
+
+    /* ═══════════════════════════════════════════
+       INTRO SECTION
+    ═══════════════════════════════════════════ */
+    .intro {
+      background: #fff;
+      padding: 96px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro__inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .intro__lead {
+      font-family: var(--font-serif);
+      font-size: clamp(1.0625rem, 2.2vw, 1.3125rem);
+      color: rgb(var(--primary-950));
+      line-height: 1.65;
+      font-weight: 400;
+      margin-top: 24px;
+      margin-bottom: 20px;
+    }
+
+    .intro__body {
+      font-size: 0.9375rem;
+      color: rgb(var(--neutral-700));
+      line-height: 1.85;
+    }
+
+    .intro__body strong {
+      font-weight: 700;
+      color: rgb(var(--primary-700));
+    }
+
+    /* ═══════════════════════════════════════════
+       BENEFITS
+    ═══════════════════════════════════════════ */
+    .benefits {
+      background: rgb(var(--primary-50));
+      padding: 96px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefits__header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .benefits__header .section-title {
+      margin-top: 0;
+    }
+
+    .benefits__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 20px;
+    }
+
+    .benefit-card {
+      background: #fff;
+      border: 1px solid rgb(var(--primary-100));
+      border-radius: 2rem;
+      padding: 32px 22px 26px;
+      text-align: center;
+      transition: transform 0.45s cubic-bezier(.22,.68,0,1.2), box-shadow 0.45s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 44px rgba(29,34,25,0.10);
+    }
+
+    .benefit-card__icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgb(var(--primary-50));
+      border: 1px solid rgb(var(--primary-100));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 1.625rem;
+    }
+
+    .benefit-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      color: rgb(var(--primary-900));
+      font-weight: 400;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .benefit-card__desc {
+      font-size: 0.8125rem;
+      color: rgb(var(--neutral-700));
+      line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════════════
+       SERVICES / MENU
+    ═══════════════════════════════════════════ */
+    .services {
+      background: rgb(var(--primary-900));
+      padding: 96px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services__header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .services__header p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.9375rem;
+      margin-top: 16px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .services__list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .menu-item {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 20px;
+      align-items: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(70,78,58,0.4);
+      border-radius: 1.5rem;
+      padding: 20px 26px;
+      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+      cursor: default;
+    }
+
+    .menu-item:hover {
+      transform: translateX(5px);
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(112,123,93,0.4);
+    }
+
+    .menu-item__icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(70,78,58,0.65);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.875rem;
+      flex-shrink: 0;
+      border: 1px solid rgba(123,148,102,0.2);
+    }
+
+    .menu-item__body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .menu-item__name {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      color: rgb(var(--primary-100));
+      font-weight: 400;
+      margin-bottom: 5px;
+      line-height: 1.25;
+    }
+
+    .menu-item__desc {
+      font-size: 0.78rem;
+      color: rgba(198,212,186,0.7);
+      font-weight: 300;
+      line-height: 1.55;
+      margin-bottom: 6px;
+    }
+
+    .menu-item__duration {
+      font-size: 0.625rem;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+    }
+
+    .menu-item__price-wrap {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .menu-item__price-label {
+      display: block;
+      font-size: 0.5625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.28);
+      font-weight: 700;
+      margin-bottom: 3px;
+      font-family: var(--font-body);
+    }
+
+    .menu-item__price {
+      font-family: var(--font-serif);
+      font-size: 1.3125rem;
+      color: rgb(var(--secondary-400));
+      font-weight: 400;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .menu-item__price span {
+      font-size: 0.75rem;
+      font-family: var(--font-body);
+      vertical-align: super;
+    }
+
+    /* Featured variant */
+    .menu-item--featured {
+      background: rgba(112,123,93,0.1);
+      border-color: rgba(112,123,93,0.38);
+    }
+
+    .menu-item--featured .menu-item__icon {
+      background: rgba(112,123,93,0.38);
+    }
+
+    .menu-item--featured:hover {
+      background: rgba(112,123,93,0.16);
+    }
+
+    /* ═══════════════════════════════════════════
+       EXPERIENCE SECTION
+    ═══════════════════════════════════════════ */
+    .experience {
+      background: #fff;
+      padding: 96px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .experience__body {
+      font-size: 0.9375rem;
+      color: rgb(var(--neutral-700));
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .experience__body:last-of-type {
+      margin-bottom: 36px;
+    }
+
+    .experience__image-wrap {
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      border: 1px solid rgb(var(--primary-100));
+    }
+
+    .experience__image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background:
+        radial-gradient(ellipse 65% 55% at 60% 35%, rgba(123,148,102,0.45) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 30% 75%, rgba(70,78,58,0.35) 0%, transparent 60%),
+        linear-gradient(155deg,
+          rgb(var(--primary-100)) 0%,
+          rgb(var(--primary-200)) 35%,
+          rgb(var(--primary-300)) 65%,
+          rgb(var(--primary-400)) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.75s ease;
+    }
+
+    .experience__image-wrap:hover .experience__image {
+      transform: scale(1.05);
+    }
+
+    .experience__image-placeholder {
+      font-size: 5rem;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .experience__badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgb(var(--primary-900));
+      border-radius: 1rem;
+      padding: 14px 22px;
+      border: 1px solid rgba(112,123,93,0.3);
+    }
+
+    .experience__badge-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.42);
+      display: block;
+      margin-bottom: 3px;
+      font-weight: 700;
+    }
+
+    .experience__badge-value {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: rgb(var(--secondary-400));
+    }
+
+    /* ═══════════════════════════════════════════
+       CTA FINAL
+    ═══════════════════════════════════════════ */
+    .cta-final {
+      background: rgb(var(--primary-950));
+      padding: 104px 0;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta-final__title {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 4.5vw, 42px);
+      color: #fff;
+      font-weight: 400;
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+
+    .cta-final__title em {
+      font-style: italic;
+    }
+
+    .cta-final__body {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9375rem;
+      max-width: 460px;
+      margin: 0 auto 44px;
+      line-height: 1.8;
+    }
+
+    .cta-final__urgency {
+      font-size: 0.75rem;
+      color: rgb(var(--secondary-400));
+      margin-top: 28px;
+      letter-spacing: 0.12em;
+      opacity: 0.85;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    .footer {
+      background: rgb(var(--primary-900));
+      padding: 60px 0 36px;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(70,78,58,0.4);
+      margin-bottom: 32px;
+    }
+
+    .footer__brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      letter-spacing: 0.14em;
+      color: #fff;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    .footer__brand-sub {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 18px;
+    }
+
+    .footer__brand-desc {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+      max-width: 260px;
+    }
+
+    .footer__col-title {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 22px;
+    }
+
+    .footer__links {
+      list-style: none;
+    }
+
+    .footer__links li {
+      margin-bottom: 10px;
+    }
+
+    .footer__links a {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.58);
+      transition: color 0.3s ease;
+    }
+
+    .footer__links a:hover {
+      color: rgb(var(--secondary-400));
+    }
+
+    .footer__contact-item {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .footer__contact-item .icon {
+      font-size: 0.875rem;
+      flex-shrink: 0;
+      opacity: 0.5;
+      margin-top: 1px;
+    }
+
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer__copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.28);
+    }
+
+    .footer__social a {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.42);
+      transition: color 0.3s ease;
+      letter-spacing: 0.05em;
+    }
+
+    .footer__social a:hover {
+      color: rgb(var(--secondary-400));
+    }
+
+    /* ═══════════════════════════════════════════
+       DECORATIVE SVG PILL LINES
+    ═══════════════════════════════════════════ */
+    .pill-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       SCROLL REVEAL
+    ═══════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(48px);
+      transition: opacity 0.75s cubic-bezier(.22,.68,0,1.2),
+                  transform 0.75s cubic-bezier(.22,.68,0,1.2);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.10s; }
+    .reveal-delay-2 { transition-delay: 0.20s; }
+    .reveal-delay-3 { transition-delay: 0.30s; }
+    .reveal-delay-4 { transition-delay: 0.40s; }
+
+    /* ═══════════════════════════════════════════
+       HERO ANIMATIONS
+    ═══════════════════════════════════════════ */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.38; transform: scaleY(1); }
+      50%       { opacity: 0.75; transform: scaleY(1.12); }
+    }
+
+    .hero__tag      { animation: fadeSlideUp 0.85s cubic-bezier(.22,.68,0,1.2) 0.10s both; }
+    .hero__title    { animation: fadeSlideUp 0.95s cubic-bezier(.22,.68,0,1.2) 0.25s both; }
+    .hero__subtitle { animation: fadeSlideUp 0.95s cubic-bezier(.22,.68,0,1.2) 0.38s both; }
+    .hero__actions  { animation: fadeSlideUp 0.95s cubic-bezier(.22,.68,0,1.2) 0.50s both; }
+    .hero__pills    { animation: fadeSlideUp 0.95s cubic-bezier(.22,.68,0,1.2) 0.62s both; }
+    .hero__scroll   { animation: fadeIn 1.4s ease 1.3s both; }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .strip__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .strip__item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .strip__item:nth-child(odd)  { border-right: 1px solid rgba(255,255,255,0.06); }
+      .strip__item:nth-child(3),
+      .strip__item:nth-child(4)    { border-bottom: none; }
+
+      .experience__grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+
+      .experience__image-wrap {
+        order: -1;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .intro,
+      .benefits,
+      .services,
+      .experience,
+      .cta-final {
+        padding: 72px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .menu-item {
+        grid-template-columns: 50px 1fr auto;
+        gap: 14px;
+        padding: 16px 18px;
+      }
+
+      .menu-item__icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.375rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container,
+      .container--wide {
+        padding: 0 16px;
+      }
+
+      .intro,
+      .benefits,
+      .services,
+      .experience,
+      .cta-final {
+        padding: 60px 0;
+      }
+
+      .hero__actions {
+        flex-direction: column;
+      }
+
+      .hero__actions .btn {
+        width: 100%;
+      }
+
+      .btn--wpp,
+      .btn--primary {
+        font-size: 0.6875rem;
+        padding: 15px 28px;
+      }
+
+      .menu-item {
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+      }
+
+      .menu-item__icon {
+        display: none;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav class="nav" id="navbar" aria-label="Navegação principal">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo" aria-label="MAI·CO Health & Spa — Página inicial">
+          <span class="nav__logo-name">MAI·CO</span>
+          <span class="nav__logo-sub">Health &amp; Spa</span>
+        </a>
+        <a href="https://wa.me/5551990106281?text=Olá!%20Gostaria%20de%20presentear%20no%20Dia%20das%20Mães%20com%20uma%20experiência%20na%20Mai.CO."
+           class="nav__cta"
+           target="_blank"
+           rel="noopener noreferrer">
+          Presentear agora
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="hero" aria-label="Presente para o Dia das Mães">
+
+    <div class="hero__bg" aria-hidden="true"></div>
+
+    <!-- Decorative pill lines -->
+    <div class="hero__decor pill-lines" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <rect x="6%"  y="-1620" width="38" height="2050" rx="19" fill="none" stroke="#fff" stroke-opacity="0.07" vector-effect="non-scaling-stroke"/>
+        <rect x="16%" y="-1780" width="24" height="2050" rx="12" fill="none" stroke="#fff" stroke-opacity="0.04" vector-effect="non-scaling-stroke"/>
+        <rect x="70%" y="-1560" width="44" height="2050" rx="22" fill="none" stroke="#fff" stroke-opacity="0.08" vector-effect="non-scaling-stroke"/>
+        <rect x="84%" y="-1720" width="26" height="2050" rx="13" fill="none" stroke="#fff" stroke-opacity="0.05" vector-effect="non-scaling-stroke"/>
+        <rect x="57%" y="-1670" width="16" height="2050" rx="8"  fill="none" stroke="#fff" stroke-opacity="0.04" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+
+    <div class="container hero__content">
+      <span class="tag tag--dark hero__tag">Dia das Mães 2025</span>
+
+      <h1 class="hero__title">
+        Para ela,<br><em>pelo menos<br>uma vez.</em>
+      </h1>
+
+      <p class="hero__subtitle">
+        Porque quem cuida de todo mundo precisa,<br>
+        pelo menos uma vez, ser o centro do cuidado.
+      </p>
+
+      <div class="hero__actions">
+        <a href="https://wa.me/5551990106281?text=Olá!%20Quero%20presentear%20minha%20mãe%20no%20Dia%20das%20Mães%20com%20uma%20experiência%20na%20Mai.CO."
+           class="btn btn--wpp"
+           target="_blank"
+           rel="noopener noreferrer">
+          <svg class="wpp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Quero presentear minha mãe
+        </a>
+        <a href="#servicos" class="btn btn--ghost-light">Ver experiências</a>
+      </div>
+
+      <div class="hero__pills">
+        <div class="hero__pill">
+          <span class="hero__pill-dot" aria-hidden="true"></span>
+          Santa Cruz do Sul – RS
+        </div>
+        <div class="hero__pill">
+          <span class="hero__pill-dot" aria-hidden="true"></span>
+          Vagas limitadas
+        </div>
+        <div class="hero__pill">
+          <span class="hero__pill-dot" aria-hidden="true"></span>
+          5 experiências exclusivas
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <div class="hero__scroll-line"></div>
+      <span class="hero__scroll-label">scroll</span>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       INFO STRIP
+  ═══════════════════════════════════════════ -->
+  <section class="strip" aria-label="Números da experiência">
+    <div class="pill-lines" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect x="22%"  y="-1700" width="18" height="2050" rx="9"  fill="none" stroke="#fff" stroke-opacity="0.05" vector-effect="non-scaling-stroke"/>
+        <rect x="78%"  y="-1600" width="14" height="2050" rx="7"  fill="none" stroke="#fff" stroke-opacity="0.04" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    <div class="container--wide">
+      <div class="strip__grid">
+        <div class="strip__item">
+          <div class="strip__value">5</div>
+          <div class="strip__label">Experiências exclusivas</div>
+        </div>
+        <div class="strip__item">
+          <div class="strip__value">1h–3h</div>
+          <div class="strip__label">De imersão total</div>
+        </div>
+        <div class="strip__item">
+          <div class="strip__value">100%</div>
+          <div class="strip__label">Personalizado para ela</div>
+        </div>
+        <div class="strip__item">
+          <div class="strip__value">★ 5.0</div>
+          <div class="strip__label">Avaliação dos clientes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       INTRO
+  ═══════════════════════════════════════════ -->
+  <section class="intro" aria-labelledby="intro-title">
+    <div class="pill-lines" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4%"   y="-1600" width="30" height="2050" rx="15" fill="none" stroke="rgb(29,34,25)" stroke-opacity="0.04" vector-effect="non-scaling-stroke"/>
+        <rect x="93%"  y="-1760" width="20" height="2050" rx="10" fill="none" stroke="rgb(29,34,25)" stroke-opacity="0.04" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    <div class="intro__inner">
+      <span class="tag tag--light reveal">Dia das Mães 2025</span>
+      <h2 id="intro-title" class="section-title section-title--light reveal reveal-delay-1">
+        Muito além da massagem.<br><em>É cuidado de verdade.</em>
+      </h2>
+      <p class="intro__lead reveal reveal-delay-2">
+        O Dia das Mães chegou, e esse ano, presenteie quem você ama com algo que realmente simbolize o que a palavra Mãe representa: tempo, cuidado, carinho, amor e atenção.
+      </p>
+      <p class="intro__body reveal reveal-delay-3">
+        Na Mai.CO, criamos experiências únicas onde o corpo irá relaxar, a mente descansar e ela sairá renovada. É um espaço onde cada detalhe foi pensado para ela se sentir exatamente como merece: <strong>cuidada</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BENEFITS
+  ═══════════════════════════════════════════ -->
+  <section class="benefits" aria-labelledby="benefits-title">
+    <div class="pill-lines" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2%"   y="-1500" width="28" height="2050" rx="14" fill="none" stroke="rgb(29,34,25)" stroke-opacity="0.05" vector-effect="non-scaling-stroke"/>
+        <rect x="95%"  y="-1800" width="22" height="2050" rx="11" fill="none" stroke="rgb(29,34,25)" stroke-opacity="0.04" vector-effect="non-scaling-stroke"/>
+        <rect x="50%"  y="-1680" width="14" height="2050" rx="7"  fill="none" stroke="rgb(29,34,25)" stroke-opacity="0.03" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    <div class="container--wide">
+      <div class="benefits__header">
+        <span class="tag tag--light reveal">O que ela vai sentir</span>
+        <h2 id="benefits-title" class="section-title section-title--light reveal reveal-delay-1">
+          Uma experiência que<br><em>transforma o dia</em>
+        </h2>
+      </div>
+      <div class="benefits__grid">
+        <div class="benefit-card reveal reveal-delay-1">
+          <div class="benefit-card__icon" aria-hidden="true">🌿</div>
+          <h3 class="benefit-card__title">Relaxamento Profundo</h3>
+          <p class="benefit-card__desc">Técnicas especializadas que liberam tensões acumuladas e promovem paz interior genuína</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-2">
+          <div class="benefit-card__icon" aria-hidden="true">✨</div>
+          <h3 class="benefit-card__title">Renovação Total</h3>
+          <p class="benefit-card__desc">Pele hidratada, corpo nutrido e mente descansada após cada ritual de bem-estar</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-3">
+          <div class="benefit-card__icon" aria-hidden="true">🕊️</div>
+          <h3 class="benefit-card__title">Equilíbrio Interior</h3>
+          <p class="benefit-card__desc">Energias alinhadas com técnicas bioenergéticas que equilibram corpo e mente</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-4">
+          <div class="benefit-card__icon" aria-hidden="true">💛</div>
+          <h3 class="benefit-card__title">Memória Afetiva</h3>
+          <p class="benefit-card__desc">Um presente que ela vai lembrar para sempre, muito além de qualquer coisa material</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES / MENU
+  ═══════════════════════════════════════════ -->
+  <section class="services" id="servicos" aria-labelledby="services-title">
+    <div class="pill-lines" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6%"   y="-1600" width="30" height="2050" rx="15" fill="none" stroke="#fff" stroke-opacity="0.05" vector-effect="non-scaling-stroke"/>
+        <rect x="89%"  y="-1740" width="22" height="2050" rx="11" fill="none" stroke="#fff" stroke-opacity="0.04" vector-effect="non-scaling-stroke"/>
+        <rect x="46%"  y="-1700" width="14" height="2050" rx="7"  fill="none" stroke="#fff" stroke-opacity="0.03" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="services__header">
+        <span class="tag tag--dark reveal">Presenteie com</span>
+        <h2 id="services-title" class="section-title section-title--dark reveal reveal-delay-1">
+          Escolha a <em>experiência<br>perfeita</em> para ela
+        </h2>
+        <p class="reveal reveal-delay-2">Cada ritual foi pensado para proporcionar o mais alto nível de bem-estar e cuidado.</p>
+      </div>
+
+      <div class="services__list">
+
+        <!-- Item 1 -->
+        <div class="menu-item reveal reveal-delay-1">
+          <div class="menu-item__icon" aria-hidden="true">🕯️</div>
+          <div class="menu-item__body">
+            <h3 class="menu-item__name">Massagem de Velas ou Pedras Quentes</h3>
+            <p class="menu-item__desc">Reduz o estresse, alivia dores, promove relaxamento profundo.</p>
+            <span class="menu-item__duration">1 hora</span>
+          </div>
+          <div class="menu-item__price-wrap">
+            <span class="menu-item__price-label">a partir de</span>
+            <div class="menu-item__price"><span>R$</span> 227</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-item reveal reveal-delay-2">
+          <div class="menu-item__icon" aria-hidden="true">⚡</div>
+          <div class="menu-item__body">
+            <h3 class="menu-item__name">Massagem Bioenergética</h3>
+            <p class="menu-item__desc">Trabalha a energia vital com técnicas que equilibram corpo e mente.</p>
+            <span class="menu-item__duration">1 hora</span>
+          </div>
+          <div class="menu-item__price-wrap">
+            <span class="menu-item__price-label">a partir de</span>
+            <div class="menu-item__price"><span>R$</span> 267</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-item reveal reveal-delay-3">
+          <div class="menu-item__icon" aria-hidden="true">🌸</div>
+          <div class="menu-item__body">
+            <h3 class="menu-item__name">Day Spa Beleza</h3>
+            <p class="menu-item__desc">Massagem corporal + esfoliação + hidratação corporal e facial completa.</p>
+            <span class="menu-item__duration">2 horas</span>
+          </div>
+          <div class="menu-item__price-wrap">
+            <span class="menu-item__price-label">a partir de</span>
+            <div class="menu-item__price"><span>R$</span> 350</div>
+          </div>
+        </div>
+
+        <!-- Item 4 — VIP Harmony (featured) -->
+        <div class="menu-item menu-item--featured reveal reveal-delay-4">
+          <div class="menu-item__icon" aria-hidden="true">👑</div>
+          <div class="menu-item__body">
+            <h3 class="menu-item__name">Day Spa VIP Harmony</h3>
+            <p class="menu-item__desc">Banho de imersão + terapia facial com sérum de óleos essenciais + massagem corporal + coffee break saudável.</p>
+            <span class="menu-item__duration">2 horas</span>
+          </div>
+          <div class="menu-item__price-wrap">
+            <span class="menu-item__price-label">a partir de</span>
+            <div class="menu-item__price"><span>R$</span> 460</div>
+          </div>
+        </div>
+
+        <!-- Item 5 — VIP Premium (featured) -->
+        <div class="menu-item menu-item--featured reveal reveal-delay-4">
+          <div class="menu-item__icon" aria-hidden="true">💎</div>
+          <div class="menu-item__body">
+            <h3 class="menu-item__name">Day Spa VIP Premium</h3>
+            <p class="menu-item__desc">O mais alto nível de bem-estar: banho + revitalização facial + máscara facial nutritiva + esfoliação + hidratação + massagem. Ela ainda leva para casa uma taça personalizada, pintada à mão.</p>
+            <span class="menu-item__duration">3 horas</span>
+          </div>
+          <div class="menu-item__price-wrap">
+            <span class="menu-item__price-label">a partir de</span>
+            <div class="menu-item__price"><span>R$</span> 647</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EXPERIENCE SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="experience" aria-labelledby="experience-title">
+    <div class="pill-lines" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3%"   y="-1620" width="28" height="2050" rx="14" fill="none" stroke="rgb(29,34,25)" stroke-opacity="0.05" vector-effect="non-scaling-stroke"/>
+        <rect x="91%"  y="-1700" width="20" height="2050" rx="10" fill="none" stroke="rgb(29,34,25)" stroke-opacity="0.04" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="experience__grid">
+
+        <div>
+          <span class="tag tag--light reveal">Um presente com significado</span>
+          <h2 id="experience-title" class="section-title section-title--light reveal reveal-delay-1" style="margin-bottom: 28px;">
+            Quanto tempo ela dedicou<br><em>cuidando de todo mundo?</em>
+          </h2>
+          <p class="experience__body reveal reveal-delay-2">
+            Esse presente devolve a ela, pelo menos, algumas horas para si mesma. Um momento de cuidado genuíno, num espaço pensado nos mínimos detalhes para que ela se sinta exatamente como merece.
+          </p>
+          <p class="experience__body reveal reveal-delay-3">
+            Na Mai.CO, cada experiência é um ritual completo — do ambiente ao aroma, da música ao toque. Porque ela merece muito mais do que flores que murcham em três dias.
+          </p>
+          <a href="https://wa.me/5551990106281?text=Olá!%20Quero%20garantir%20uma%20experiência%20do%20Dia%20das%20Mães%20na%20Mai.CO."
+             class="btn btn--primary reveal reveal-delay-4"
+             target="_blank"
+             rel="noopener noreferrer">
+            Garantir experiência
+          </a>
+        </div>
+
+        <div class="experience__image-wrap reveal reveal-delay-2">
+          <div class="experience__image" role="img" aria-label="Ambiente relaxante e acolhedor do Mai.CO Health & Spa">
+            <span class="experience__image-placeholder" aria-hidden="true">🌿</span>
+          </div>
+          <div class="experience__badge">
+            <span class="experience__badge-label">Localização</span>
+            <span class="experience__badge-value">Santa Cruz do Sul, RS</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CTA FINAL
+  ═══════════════════════════════════════════ -->
+  <section class="cta-final" aria-labelledby="cta-title">
+    <div class="pill-lines" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect x="9%"   y="-1600" width="34" height="2050" rx="17" fill="none" stroke="#fff" stroke-opacity="0.06" vector-effect="non-scaling-stroke"/>
+        <rect x="83%"  y="-1760" width="24" height="2050" rx="12" fill="none" stroke="#fff" stroke-opacity="0.05" vector-effect="non-scaling-stroke"/>
+        <rect x="49%"  y="-1700" width="16" height="2050" rx="8"  fill="none" stroke="#fff" stroke-opacity="0.04" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    <div class="container">
+      <span class="tag tag--dark reveal">Vagas limitadas</span>
+      <h2 id="cta-title" class="cta-final__title reveal reveal-delay-1">
+        Garanta agora.<br>
+        <em>O Dia das Mães não espera.</em>
+      </h2>
+      <p class="cta-final__body reveal reveal-delay-2">
+        As vagas são limitadas. Presenteie ela com algo que realmente simbolize o que a palavra Mãe representa: tempo, cuidado, carinho, amor e atenção.
+      </p>
+      <a href="https://wa.me/5551990106281?text=Olá!%20Quero%20presentear%20minha%20mãe%20no%20Dia%20das%20Mães%20com%20uma%20experiência%20especial%20na%20Mai.CO.%20Quais%20são%20as%20vagas%20disponíveis%3F"
+         class="btn btn--wpp reveal reveal-delay-3"
+         target="_blank"
+         rel="noopener noreferrer">
+        <svg class="wpp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Quero presentear minha mãe
+      </a>
+      <p class="cta-final__urgency reveal reveal-delay-4">✦ Garanta antes que as vagas acabem ✦</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" aria-label="Rodapé">
+    <div class="container--wide">
+      <div class="footer__grid">
+
+        <div>
+          <div class="footer__brand-name">MAI·CO</div>
+          <div class="footer__brand-sub">Health &amp; Spa</div>
+          <p class="footer__brand-desc">
+            Spa urbano de nutrição, bem-estar e longevidade em Santa Cruz do Sul, RS. Cada detalhe pensado para que você se sinta exatamente como merece: cuidada.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Links</div>
+          <ul class="footer__links">
+            <li><a href="#servicos">Experiências</a></li>
+            <li>
+              <a href="https://maicohealthespa.com.br/" target="_blank" rel="noopener noreferrer">
+                Site oficial
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/maicohealthespa" target="_blank" rel="noopener noreferrer">
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5551990106281" target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Contato</div>
+          <div class="footer__contact-item">
+            <span class="icon">📍</span>
+            Santa Cruz do Sul – RS, Brasil
+          </div>
+          <div class="footer__contact-item">
+            <span class="icon">📱</span>
+            (51) 99010-6281
+          </div>
+          <div class="footer__contact-item">
+            <span class="icon">📷</span>
+            @maicohealthespa
+          </div>
+          <div class="footer__contact-item">
+            <span class="icon">🌐</span>
+            maicohealthespa.com.br
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 Mai.CO Health &amp; Spa. Todos os direitos reservados.</p>
+        <div class="footer__social">
+          <a href="https://instagram.com/maicohealthespa" target="_blank" rel="noopener noreferrer">
+            @maicohealthespa
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── NAVBAR: transparent → dark on scroll ───
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ─── SCROLL REVEAL via IntersectionObserver ───
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ─── SMOOTH SCROLL for anchor links ───
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const id = link.getAttribute('href');
+        if (id === '#') return;
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
