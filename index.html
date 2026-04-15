@@ -316,23 +316,31 @@
       overflow: hidden;
     }
 
+    .hero__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero__video--mobile { display: none; }
+
+    @media (max-width: 768px) {
+      .hero__video--desktop { display: none; }
+      .hero__video--mobile  { display: block; }
+    }
+
     .hero__bg {
       position: absolute;
       inset: 0;
       z-index: 1;
-      /* Rich, layered gradient simulating a lush, dimly lit spa environment */
       background:
         linear-gradient(165deg,
-          rgba(29,34,25,0.92) 0%,
-          rgba(49,54,43,0.55) 45%,
-          rgba(70,78,58,0.20) 100%),
-        radial-gradient(ellipse 70% 80% at 75% 40%, rgba(112,123,93,0.22) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 60% at 15% 85%, rgba(29,34,25,0.7) 0%, transparent 60%),
-        linear-gradient(200deg,
-          rgb(29,34,25) 0%,
-          rgb(49,54,43) 40%,
-          rgb(70,78,58) 70%,
-          rgb(87,97,72) 100%);
+          rgba(29,34,25,0.78) 0%,
+          rgba(49,54,43,0.50) 45%,
+          rgba(70,78,58,0.25) 100%);
     }
 
     /* Ambient glow — right side warmth */
@@ -1181,6 +1189,13 @@
   ═══════════════════════════════════════════ -->
   <section class="hero" aria-label="Presente para o Dia das Mães">
 
+    <video class="hero__video hero__video--desktop" autoplay muted loop playsinline aria-hidden="true">
+      <source src="dia-da-mulher-video-desktop.mp4" type="video/mp4">
+    </video>
+    <video class="hero__video hero__video--mobile" autoplay muted loop playsinline aria-hidden="true">
+      <source src="dia-da-mulher-video-mobile.mp4" type="video/mp4">
+    </video>
+
     <div class="hero__bg" aria-hidden="true"></div>
 
     <!-- Decorative pill lines -->
@@ -1198,13 +1213,10 @@
       <span class="tag tag--dark hero__tag">Dia das Mães 2026</span>
 
       <h1 class="hero__title">
-        Para ela,<br><em>pelo menos<br>uma vez.</em>
+        O presente mais honesto<br>
+        que você pode dar<br>
+        <em>não é uma surpresa,<br>é reconhecimento,</em>
       </h1>
-
-      <p class="hero__subtitle">
-        Porque quem cuida de todo mundo precisa,<br>
-        pelo menos uma vez, ser o centro do cuidado.
-      </p>
 
       <div class="hero__actions">
         <a href="https://wa.me/5551990106281?text=Olá!%20Quero%20presentear%20minha%20mãe%20no%20Dia%20das%20Mães%20com%20uma%20experiência%20na%20Mai.CO."
@@ -1282,6 +1294,10 @@
       </p>
       <p class="intro__body reveal reveal-delay-3">
         Na Mai.CO, criamos experiências únicas onde o corpo irá relaxar, a mente descansar e ela sairá renovada. É um espaço onde cada detalhe foi pensado para ela se sentir exatamente como merece: <strong>cuidada</strong>.
+      </p>
+      <p class="intro__body reveal reveal-delay-4">
+        Um Day Spa Mai.CO é exatamente a forma de dizer que você reconhece tudo o que ela fez e faz por você. Um momento só dela, onde o corpo descansa e a mente respira.<br><br>
+        <em>Porque ela faz muito. E isso merece ser dito, e sentido.</em>
       </p>
     </div>
   </section>
