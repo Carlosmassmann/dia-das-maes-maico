@@ -621,10 +621,10 @@
     }
 
     /* ═══════════════════════════════════════════
-       SERVICES / MENU
+       SERVICES / PRICING CARDS
     ═══════════════════════════════════════════ */
     .services {
-      background: rgb(var(--primary-900));
+      background: #f5f3ee;
       padding: 96px 0;
       position: relative;
       overflow: hidden;
@@ -636,7 +636,7 @@
     }
 
     .services__header p {
-      color: rgba(255,255,255,0.55);
+      color: rgb(var(--neutral-700));
       font-size: 0.9375rem;
       margin-top: 16px;
       max-width: 480px;
@@ -644,118 +644,213 @@
       margin-right: auto;
     }
 
-    .services__list {
+    /* Grid flex para centralizar a última linha */
+    .pricing__grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 1.5rem;
+      padding: 36px 28px 32px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-    }
-
-    .menu-item {
-      display: grid;
-      grid-template-columns: 72px 1fr auto;
-      gap: 20px;
       align-items: center;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(70,78,58,0.4);
-      border-radius: 1.5rem;
-      padding: 20px 26px;
-      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-      cursor: default;
+      text-align: center;
+      position: relative;
+      width: calc(33.333% - 22px);
+      min-width: 260px;
+      transition: transform 0.4s cubic-bezier(.22,.68,0,1.2), box-shadow 0.4s ease;
     }
 
-    .menu-item:hover {
-      transform: translateX(5px);
-      background: rgba(255,255,255,0.07);
-      border-color: rgba(112,123,93,0.4);
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(29,34,25,0.12);
     }
 
-    .menu-item__icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: rgba(70,78,58,0.65);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.875rem;
-      flex-shrink: 0;
-      border: 1px solid rgba(123,148,102,0.2);
+    .pricing-card--featured {
+      background: #f5ede0;
+      border-color: rgba(194,144,35,0.22);
     }
 
-    .menu-item__body {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .menu-item__name {
-      font-family: var(--font-serif);
-      font-size: 1.0625rem;
-      color: rgb(var(--primary-100));
-      font-weight: 400;
-      margin-bottom: 5px;
-      line-height: 1.25;
-    }
-
-    .menu-item__desc {
-      font-size: 0.78rem;
-      color: rgba(198,212,186,0.7);
-      font-weight: 300;
-      line-height: 1.55;
-      margin-bottom: 6px;
-    }
-
-    .menu-item__duration {
-      font-size: 0.625rem;
-      color: rgba(255,255,255,0.3);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+    .pricing-card__badge {
+      position: absolute;
+      top: -1px;
+      right: 22px;
+      background: rgb(var(--secondary-500));
+      color: #fff;
+      font-size: 0.5rem;
       font-weight: 700;
-    }
-
-    .menu-item__price-wrap {
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    .menu-item__price-label {
-      display: block;
-      font-size: 0.5625rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: rgba(255,255,255,0.28);
-      font-weight: 700;
-      margin-bottom: 3px;
+      padding: 6px 14px;
+      border-radius: 0 0 1rem 1rem;
       font-family: var(--font-body);
     }
 
-    .menu-item__price {
-      font-family: var(--font-serif);
-      font-size: 1.3125rem;
-      color: rgb(var(--secondary-400));
-      font-weight: 400;
-      white-space: nowrap;
+    .pricing-card__icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
       line-height: 1;
     }
 
-    .menu-item__price span {
-      font-size: 0.75rem;
+    .pricing-card__name {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: rgb(var(--primary-950));
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .pricing-card__price {
+      font-family: var(--font-serif);
+      font-size: 1.875rem;
+      font-weight: 400;
+      color: rgb(var(--primary-900));
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+
+    .pricing-card__price sup {
+      font-size: 0.875rem;
       font-family: var(--font-body);
+      font-weight: 400;
       vertical-align: super;
+      margin-right: 2px;
     }
 
-    /* Featured variant */
-    .menu-item--featured {
-      background: rgba(112,123,93,0.1);
-      border-color: rgba(112,123,93,0.38);
+    .pricing-card__price small {
+      font-size: 1rem;
+      font-family: var(--font-body);
+      font-weight: 300;
     }
 
-    .menu-item--featured .menu-item__icon {
-      background: rgba(112,123,93,0.38);
+    .pricing-card--featured .pricing-card__price {
+      color: rgb(var(--secondary-500));
     }
 
-    .menu-item--featured:hover {
-      background: rgba(112,123,93,0.16);
+    .pricing-card__divider {
+      width: 100%;
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.09);
+      margin: 0 0 22px;
+    }
+
+    .pricing-card--featured .pricing-card__divider {
+      border-top-color: rgba(194,144,35,0.2);
+    }
+
+    .pricing-card__tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.875rem;
+      color: rgb(var(--neutral-700));
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+
+    .pricing-card__desc {
+      font-size: 0.8125rem;
+      color: rgb(var(--neutral-700));
+      line-height: 1.75;
+      text-align: left;
+      margin-bottom: 14px;
+      width: 100%;
+    }
+
+    .pricing-card__label {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: rgb(var(--primary-800));
+      text-align: left;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .pricing-card__list {
+      list-style: none;
+      width: 100%;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .pricing-card__list li {
+      font-size: 0.8125rem;
+      color: rgb(var(--neutral-700));
+      line-height: 1.6;
+      padding: 3px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .pricing-card__list li::before {
+      content: '✓';
+      color: rgb(var(--primary-500));
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 0.8125rem;
+    }
+
+    .pricing-card--featured .pricing-card__list li::before {
+      content: '◆';
+      color: rgb(var(--secondary-500));
+      font-size: 0.55rem;
+      margin-top: 4px;
+    }
+
+    .btn--pricing {
+      width: 100%;
+      background: rgb(var(--primary-900));
+      color: #fff;
+      border-radius: 9999px;
+      padding: 15px 24px;
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-family: var(--font-body);
+      text-align: center;
+      transition: all 0.35s ease;
+      border: none;
+      cursor: pointer;
+      display: block;
+      margin-top: auto;
+      text-decoration: none;
+    }
+
+    .btn--pricing:hover {
+      background: rgb(var(--primary-950));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(29,34,25,0.28);
+    }
+
+    .pricing-card--featured .btn--pricing {
+      background: rgb(var(--secondary-500));
+    }
+
+    .pricing-card--featured .btn--pricing:hover {
+      background: rgb(170,124,28);
+      box-shadow: 0 8px 24px rgba(194,144,35,0.32);
+    }
+
+    @media (max-width: 960px) {
+      .pricing-card {
+        width: calc(50% - 22px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pricing-card {
+        width: 100%;
+        min-width: unset;
+      }
     }
 
     /* ═══════════════════════════════════════════
@@ -1103,20 +1198,6 @@
       }
     }
 
-    @media (max-width: 600px) {
-      .menu-item {
-        grid-template-columns: 50px 1fr auto;
-        gap: 14px;
-        padding: 16px 18px;
-      }
-
-      .menu-item__icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.375rem;
-      }
-    }
-
     @media (max-width: 480px) {
       .container,
       .container--wide {
@@ -1143,15 +1224,6 @@
       .btn--primary {
         font-size: 0.6875rem;
         padding: 15px 28px;
-      }
-
-      .menu-item {
-        grid-template-columns: 1fr auto;
-        gap: 12px;
-      }
-
-      .menu-item__icon {
-        display: none;
       }
 
       .footer__bottom {
@@ -1351,90 +1423,122 @@
   <section class="services" id="servicos" aria-labelledby="services-title">
     <div class="pill-lines" aria-hidden="true">
       <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <rect x="6%"   y="-1600" width="30" height="2050" rx="15" fill="none" stroke="#fff" stroke-opacity="0.05" vector-effect="non-scaling-stroke"/>
-        <rect x="89%"  y="-1740" width="22" height="2050" rx="11" fill="none" stroke="#fff" stroke-opacity="0.04" vector-effect="non-scaling-stroke"/>
-        <rect x="46%"  y="-1700" width="14" height="2050" rx="7"  fill="none" stroke="#fff" stroke-opacity="0.03" vector-effect="non-scaling-stroke"/>
+        <rect x="6%"   y="-1600" width="30" height="2050" rx="15" fill="none" stroke="rgb(29,34,25)" stroke-opacity="0.04" vector-effect="non-scaling-stroke"/>
+        <rect x="89%"  y="-1740" width="22" height="2050" rx="11" fill="none" stroke="rgb(29,34,25)" stroke-opacity="0.03" vector-effect="non-scaling-stroke"/>
+        <rect x="46%"  y="-1700" width="14" height="2050" rx="7"  fill="none" stroke="rgb(29,34,25)" stroke-opacity="0.03" vector-effect="non-scaling-stroke"/>
       </svg>
     </div>
-    <div class="container">
+    <div class="container--wide">
       <div class="services__header">
-        <span class="tag tag--dark reveal">Presenteie com</span>
-        <h2 id="services-title" class="section-title section-title--dark reveal reveal-delay-1">
+        <span class="tag tag--light reveal">Presenteie com</span>
+        <h2 id="services-title" class="section-title section-title--light reveal reveal-delay-1">
           Escolha a <em>experiência<br>perfeita</em> para ela
         </h2>
         <p class="reveal reveal-delay-2">Cada ritual foi pensado para proporcionar o mais alto nível de bem-estar e cuidado.</p>
       </div>
 
-      <div class="services__list">
+      <div class="pricing__grid">
 
-        <!-- Item 1 -->
-        <div class="menu-item reveal reveal-delay-1">
-          <div class="menu-item__icon" aria-hidden="true">🕯️</div>
-          <div class="menu-item__body">
-            <h3 class="menu-item__name">Massagem de Velas ou Pedras Quentes</h3>
-            <p class="menu-item__desc">Reduz o estresse, alivia dores, promove relaxamento profundo.</p>
-            <span class="menu-item__duration">1 hora</span>
-          </div>
-          <div class="menu-item__price-wrap">
-            <span class="menu-item__price-label">a partir de</span>
-            <div class="menu-item__price"><span>R$</span> 227</div>
-          </div>
+        <!-- Card 1: Massagem de Velas ou Pedras Quentes -->
+        <div class="pricing-card reveal reveal-delay-1">
+          <div class="pricing-card__icon" aria-hidden="true">🕯️</div>
+          <h3 class="pricing-card__name">Massagem de Velas ou Pedras Quentes</h3>
+          <div class="pricing-card__price"><sup>R$</sup> 227<small>,00</small></div>
+          <hr class="pricing-card__divider">
+          <p class="pricing-card__tagline">Um convite para sair do modo exaustão.</p>
+          <p class="pricing-card__desc">Movimentos terapêuticos com calor profundo que aliviam tensões musculares e promovem relaxamento genuíno.</p>
+          <p class="pricing-card__label">Perfeita para:</p>
+          <ul class="pricing-card__list">
+            <li>Um momento só dela</li>
+            <li>Um presente delicado e significativo</li>
+            <li>Uma pausa estratégica na rotina</li>
+          </ul>
+          <a href="https://wa.me/5551990106281?text=Olá!%20Tenho%20interesse%20na%20Massagem%20de%20Velas%20ou%20Pedras%20Quentes%20para%20o%20Dia%20das%20Mães."
+             class="btn--pricing" target="_blank" rel="noopener noreferrer">
+            Quero essa experiência
+          </a>
         </div>
 
-        <!-- Item 2 -->
-        <div class="menu-item reveal reveal-delay-2">
-          <div class="menu-item__icon" aria-hidden="true">⚡</div>
-          <div class="menu-item__body">
-            <h3 class="menu-item__name">Massagem Bioenergética</h3>
-            <p class="menu-item__desc">Trabalha a energia vital com técnicas que equilibram corpo e mente.</p>
-            <span class="menu-item__duration">1 hora</span>
-          </div>
-          <div class="menu-item__price-wrap">
-            <span class="menu-item__price-label">a partir de</span>
-            <div class="menu-item__price"><span>R$</span> 267</div>
-          </div>
+        <!-- Card 2: Massagem Bioenergética -->
+        <div class="pricing-card reveal reveal-delay-2">
+          <div class="pricing-card__icon" aria-hidden="true">⚡</div>
+          <h3 class="pricing-card__name">Massagem Bioenergética</h3>
+          <div class="pricing-card__price"><sup>R$</sup> 267<small>,00</small></div>
+          <hr class="pricing-card__divider">
+          <p class="pricing-card__tagline">Equilíbrio para o corpo e a mente.</p>
+          <p class="pricing-card__desc">Trabalha a energia vital com técnicas que harmonizam corpo e mente, aliviando bloqueios emocionais e tensões profundas.</p>
+          <p class="pricing-card__label">Perfeita para:</p>
+          <ul class="pricing-card__list">
+            <li>Aliviar ansiedade e sobrecarga</li>
+            <li>Reconectar com o próprio corpo</li>
+            <li>Uma experiência além do físico</li>
+          </ul>
+          <a href="https://wa.me/5551990106281?text=Olá!%20Tenho%20interesse%20na%20Massagem%20Bioenergética%20para%20o%20Dia%20das%20Mães."
+             class="btn--pricing" target="_blank" rel="noopener noreferrer">
+            Quero essa experiência
+          </a>
         </div>
 
-        <!-- Item 3 -->
-        <div class="menu-item reveal reveal-delay-3">
-          <div class="menu-item__icon" aria-hidden="true">🌸</div>
-          <div class="menu-item__body">
-            <h3 class="menu-item__name">Day Spa Beleza</h3>
-            <p class="menu-item__desc">Massagem corporal + esfoliação + hidratação corporal e facial completa.</p>
-            <span class="menu-item__duration">2 horas</span>
-          </div>
-          <div class="menu-item__price-wrap">
-            <span class="menu-item__price-label">a partir de</span>
-            <div class="menu-item__price"><span>R$</span> 350</div>
-          </div>
+        <!-- Card 3: Day Spa Beleza -->
+        <div class="pricing-card reveal reveal-delay-3">
+          <div class="pricing-card__icon" aria-hidden="true">🌸</div>
+          <h3 class="pricing-card__name">Day Spa Beleza</h3>
+          <div class="pricing-card__price"><sup>R$</sup> 350<small>,00</small></div>
+          <hr class="pricing-card__divider">
+          <p class="pricing-card__tagline">Uma experiência completa de cuidado.</p>
+          <p class="pricing-card__desc">Um ritual para renovar corpo e mente. Alívio das tensões, da fadiga e do cansaço mental.</p>
+          <ul class="pricing-card__list">
+            <li>Massagem corporal relaxante</li>
+            <li>Esfoliação corporal</li>
+            <li>Hidratação corporal e facial</li>
+          </ul>
+          <a href="https://wa.me/5551990106281?text=Olá!%20Tenho%20interesse%20no%20Day%20Spa%20Beleza%20para%20o%20Dia%20das%20Mães."
+             class="btn--pricing" target="_blank" rel="noopener noreferrer">
+            Quero essa experiência
+          </a>
         </div>
 
-        <!-- Item 4 — VIP Harmony (featured) -->
-        <div class="menu-item menu-item--featured reveal reveal-delay-4">
-          <div class="menu-item__icon" aria-hidden="true">👑</div>
-          <div class="menu-item__body">
-            <h3 class="menu-item__name">Day Spa VIP Harmony</h3>
-            <p class="menu-item__desc">Banho de imersão + terapia facial com sérum de óleos essenciais + massagem corporal + coffee break saudável.</p>
-            <span class="menu-item__duration">2 horas</span>
-          </div>
-          <div class="menu-item__price-wrap">
-            <span class="menu-item__price-label">a partir de</span>
-            <div class="menu-item__price"><span>R$</span> 460</div>
-          </div>
+        <!-- Card 4: Day Spa VIP Harmony (featured) -->
+        <div class="pricing-card pricing-card--featured reveal reveal-delay-1">
+          <div class="pricing-card__icon" aria-hidden="true">👑</div>
+          <h3 class="pricing-card__name">Day Spa VIP Harmony</h3>
+          <div class="pricing-card__price"><sup>R$</sup> 460<small>,00</small></div>
+          <hr class="pricing-card__divider">
+          <p class="pricing-card__tagline">O presente que renova de dentro para fora.</p>
+          <p class="pricing-card__desc">Para quem quer mais do que relaxar. Quer se reconectar.</p>
+          <ul class="pricing-card__list">
+            <li>Banho de imersão com sais</li>
+            <li>Terapia facial com sérum de óleos essenciais</li>
+            <li>Massagem corporal relaxante</li>
+            <li>Coffee break com lanches saudáveis</li>
+          </ul>
+          <a href="https://wa.me/5551990106281?text=Olá!%20Tenho%20interesse%20no%20Day%20Spa%20VIP%20Harmony%20para%20o%20Dia%20das%20Mães."
+             class="btn--pricing" target="_blank" rel="noopener noreferrer">
+            Quero essa experiência
+          </a>
         </div>
 
-        <!-- Item 5 — VIP Premium (featured) -->
-        <div class="menu-item menu-item--featured reveal reveal-delay-4">
-          <div class="menu-item__icon" aria-hidden="true">💎</div>
-          <div class="menu-item__body">
-            <h3 class="menu-item__name">Day Spa VIP Premium</h3>
-            <p class="menu-item__desc">O mais alto nível de bem-estar: banho + revitalização facial + máscara facial nutritiva + esfoliação + hidratação + massagem. Ela ainda leva para casa uma taça personalizada, pintada à mão.</p>
-            <span class="menu-item__duration">3 horas</span>
-          </div>
-          <div class="menu-item__price-wrap">
-            <span class="menu-item__price-label">a partir de</span>
-            <div class="menu-item__price"><span>R$</span> 647</div>
-          </div>
+        <!-- Card 5: Day Spa VIP Premium (featured + badge) -->
+        <div class="pricing-card pricing-card--featured reveal reveal-delay-2">
+          <div class="pricing-card__badge">Premium</div>
+          <div class="pricing-card__icon" aria-hidden="true">💎</div>
+          <h3 class="pricing-card__name">Day Spa VIP Premium</h3>
+          <div class="pricing-card__price"><sup>R$</sup> 647<small>,00</small></div>
+          <hr class="pricing-card__divider">
+          <p class="pricing-card__tagline">O presente que continua acontecendo.</p>
+          <p class="pricing-card__desc">O mais alto nível de bem-estar: uma jornada de cuidado, não apenas um dia.</p>
+          <ul class="pricing-card__list">
+            <li>Banho de imersão</li>
+            <li>Revitalização e máscara facial nutritiva</li>
+            <li>Esfoliação e hidratação corporal</li>
+            <li>Massagem corporal completa</li>
+            <li>Taça personalizada, pintada à mão</li>
+          </ul>
+          <p class="pricing-card__desc">Esse não é um presente comum. É uma declaração.</p>
+          <a href="https://wa.me/5551990106281?text=Olá!%20Tenho%20interesse%20no%20Day%20Spa%20VIP%20Premium%20para%20o%20Dia%20das%20Mães."
+             class="btn--pricing" target="_blank" rel="noopener noreferrer">
+            Quero essa experiência
+          </a>
         </div>
 
       </div>
